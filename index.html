@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VexoStream — Travel Stories, Streaming</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body data-page="home">
+  <header class="nav">
+    <div class="container nav-inner spaced">
+      <a class="brand brand-gradient" href="index.html">VexoStream</a>
+      <nav class="cluster">
+        <a class="pill" href="browse.html">Browse</a>
+        <a class="pill hide-sm" href="profile.html">Profile</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><span id="theme-ico">🌙</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container stack">
+        <h1>Stream the world's most cinematic travel escapes.</h1>
+        <p class="sub">Curated journeys. Stunning visuals. Handpicked destinations—on demand.</p>
+        <div class="cluster">
+          <a class="btn primary" href="browse.html">Explore Titles</a>
+          <a class="btn" href="profile.html">Account</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="spaced">
+        <h2>Featured</h2>
+        <a class="link-btn" href="browse.html">See all →</a>
+      </div>
+      <div id="home-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container spaced">
+      <div>© <span id="year"></span> VexoStream</div>
+      <div class="muted">Light/Dark • Keyboard accessible • No tracking</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import './assets/js/helpers.js';
+    import './assets/js/data.js';
+    import './assets/js/ui.js';
+    import './assets/js/app.js';
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

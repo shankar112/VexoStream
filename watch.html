@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VexoStream — Watch</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .player-wrap { background: #000; }
+    .player { width: 100%; max-height: 70vh; aspect-ratio: 16/9; display: block; }
+  </style>
+</head>
+<body data-page="watch">
+  <header class="nav">
+    <div class="container nav-inner spaced">
+      <a class="brand brand-gradient" href="index.html">VexoStream</a>
+      <nav class="cluster">
+        <a class="pill" href="browse.html">Browse</a>
+        <a class="pill hide-sm" href="profile.html">Profile</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><span id="theme-ico">🌙</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section stack">
+    <div class="spaced">
+      <h1 id="watch-title">Title</h1>
+      <button id="to-tdp" class="btn">Details</button>
+    </div>
+    <div class="player-wrap">
+      <video id="player" class="player" controls playsinline preload="metadata" crossorigin="anonymous"></video>
+    </div>
+    <p id="watch-desc" class="muted"></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container spaced">
+      <div>© <span id="year"></span> VexoStream</div>
+      <div class="muted">Controls: Space/P, ← →, F</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import './assets/js/helpers.js';
+    import './assets/js/data.js';
+    import './assets/js/ui.js';
+    import './assets/js/app.js';
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

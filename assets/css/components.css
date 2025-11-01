@@ -1,0 +1,34 @@
+/* VexoStream Components & animations */
+
+/* Animated reveal */
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* Play button overlay */
+.play-overlay {
+  position:absolute; inset:0; display:grid; place-items:center; background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.25));
+}
+.play-overlay .play {
+  width: 58px; height: 58px; border-radius: 50%; display:grid; place-items:center;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--accent), white 10%), var(--accent));
+  box-shadow: 0 10px 20px rgba(0,0,0,.35);
+  transform: scale(.98); transition: transform .12s ease;
+}
+.thumb:hover .play { transform: scale(1.02); }
+
+/* Genre chips group */
+.chips { display:flex; gap:.5rem; flex-wrap: wrap; }
+
+/* Tabs (profile) */
+.tabs { display:flex; gap:.5rem; border-bottom:1px solid var(--ring); margin-bottom: .75rem; }
+.tab { padding:.5rem .8rem; border-radius:.6rem .6rem 0 0; border:1px solid var(--ring); border-bottom: none; background: var(--bg-soft); }
+.tab.active { background: var(--card); }
+
+/* Range + label */
+.meter { display:flex; align-items:center; gap:.6rem; }
+.range { width: 220px; }
+
+/* Skeletons */
+.skeleton { background: linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.12), rgba(255,255,255,.05)); background-size: 300% 100%; animation: shimmer 1.2s infinite; }
+@keyframes shimmer { 0%{ background-position: 0 0 } 100%{ background-position: 100% 0 } }
+

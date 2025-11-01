@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VexoStream — Profile</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body data-page="profile">
+  <header class="nav">
+    <div class="container nav-inner spaced">
+      <a class="brand brand-gradient" href="index.html">VexoStream</a>
+      <nav class="cluster">
+        <a class="pill" href="browse.html">Browse</a>
+        <a class="pill" href="profile.html">Profile</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><span id="theme-ico">🌙</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section stack">
+    <h1>Account Settings</h1>
+    <div class="grid" style="grid-template-columns: 1.2fr .8fr; gap: 1.25rem;">
+      <section class="card">
+        <div class="card-body stack">
+          <h3>Profile</h3>
+          <label class="field"><span>Name</span><input id="pf-name" class="input" placeholder="Your name"></label>
+          <label class="field"><span>Email</span><input id="pf-email" class="input" placeholder="you@example.com"></label>
+        </div>
+      </section>
+      <section class="card">
+        <div class="card-body stack">
+          <h3>Playback</h3>
+          <label class="field"><span>Default quality</span>
+            <select id="pf-quality" class="select">
+              <option>720p</option>
+              <option selected>1080p</option>
+              <option>4K</option>
+            </select>
+          </label>
+          <label class="cluster"><input id="pf-autoplay" type="checkbox"><span>Autoplay next</span></label>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container spaced">
+      <div>© <span id="year"></span> VexoStream</div>
+      <div class="muted">Mock settings saved locally</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import './assets/js/helpers.js';
+    import './assets/js/data.js';
+    import './assets/js/ui.js';
+    import './assets/js/app.js';
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

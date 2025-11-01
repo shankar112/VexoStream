@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VexoStream — Browse</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body data-page="browse">
+  <header class="nav">
+    <div class="container nav-inner spaced">
+      <a class="brand brand-gradient" href="index.html">VexoStream</a>
+      <nav class="cluster">
+        <a class="pill" href="browse.html">Browse</a>
+        <a class="pill hide-sm" href="profile.html">Profile</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><span id="theme-ico">🌙</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section stack">
+    <div class="stack">
+      <h1>Browse</h1>
+      <div class="cluster wrap">
+        <input id="q" class="input" placeholder="Search title or genre" aria-label="Search">
+        <div id="genre-chips" class="cluster wrap"></div>
+      </div>
+    </div>
+
+    <div id="browse-grid" class="grid"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container spaced">
+      <div>© <span id="year"></span> VexoStream</div>
+      <div class="muted">Filter by genre • Live search</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import './assets/js/helpers.js';
+    import './assets/js/data.js';
+    import './assets/js/ui.js';
+    import './assets/js/app.js';
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VexoStream — Title</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .tdp-hero { min-height: 48vh; display: grid; align-items: end; }
+    .tdp-hero .inner { padding: 24px 0 28px; }
+  </style>
+</head>
+<body data-page="title">
+  <header class="nav">
+    <div class="container nav-inner spaced">
+      <a class="brand brand-gradient" href="index.html">VexoStream</a>
+      <nav class="cluster">
+        <a class="pill" href="browse.html">Browse</a>
+        <a class="pill hide-sm" href="profile.html">Profile</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><span id="theme-ico">🌙</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="tdp-hero" class="tdp-hero">
+      <div class="container inner">
+        <h1 id="tdp-title">Title</h1>
+        <div class="muted" id="tdp-genres">Genres</div>
+        <div class="cluster">
+          <button id="watch-btn" class="btn primary">Watch</button>
+          <div class="pill">Rating: <span id="tdp-rating">0.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section stack">
+      <p id="tdp-summary" class="muted">Summary</p>
+      <div id="tdp-meta" class="cluster wrap"></div>
+    </section>
+
+    <section class="container section">
+      <div class="spaced">
+        <h2>Recommended</h2>
+        <a class="link-btn" href="browse.html">More →</a>
+      </div>
+      <div id="recs-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container spaced">
+      <div>© <span id="year"></span> VexoStream</div>
+      <div class="muted">Similar by genre</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import './assets/js/helpers.js';
+    import './assets/js/data.js';
+    import './assets/js/ui.js';
+    import './assets/js/app.js';
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
