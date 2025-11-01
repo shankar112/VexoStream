@@ -1,10 +1,14 @@
 // VexoStream app bootstrap
 import { $, $$, on, qs, setTheme, getTheme, toggleTheme, revealInView, store } from './helpers.js';
 import { titles, genres } from './data.js';
-import { renderList, attachCardNavigation, pickRecommendations } from './ui.js';
+import { renderList, attachCardNavigation, pickRecommendations, enableCardHoverPreview } from './ui.js';
 
 function initTheme(){ setTheme(getTheme()); updateThemeIcon(); }
-function updateThemeIcon(){ const ico = $('#theme-ico'); if(!ico) return; const dark = getTheme()==='dark'; ico.textContent = dark? '☀' : '🌙'; ico.setAttribute('title', dark? 'Switch to light':'Switch to dark'); }
+function updateThemeIcon(){
+  const dark = getTheme()==='dark';
+  const ico = $('#theme-ico'); if(ico) { ico.textContent = dark? '☀' : '🌙'; }
+  const btn = $('#theme-toggle'); if(btn) { btn.title = dark? 'Switch to light' : 'Switch to dark'; btn.setAttribute('aria-pressed', String(!dark)); btn.dataset.next = dark? 'light':'dark'; }
+}
 
 function initHeader(){
   const btn = $('#theme-toggle');
@@ -21,6 +25,7 @@ function initServiceWorker(){
 function homeInit(){
   renderList('#home-grid', titles.slice(0,6));
   attachCardNavigation('#home-grid');
+  enableCardHoverPreview('#home-grid');
   revealInView();
 }
 
@@ -38,6 +43,7 @@ function browseInit(){
     });
     renderList('#browse-grid', list);
     attachCardNavigation('#browse-grid');
+    enableCardHoverPreview('#browse-grid');
     revealInView();
   };
   on($('#q'), 'input', apply);
@@ -71,6 +77,7 @@ function titleInit(){
   const recs = pickRecommendations(titles, item);
   renderList('#recs-grid', recs);
   attachCardNavigation('#recs-grid');
+  enableCardHoverPreview('#recs-grid');
   revealInView();
 }
 

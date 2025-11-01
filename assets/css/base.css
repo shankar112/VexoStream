@@ -64,6 +64,30 @@ button, input, select { font: inherit; color: inherit; }
 .btn.primary { background: linear-gradient(180deg, color-mix(in oklab, var(--primary), white 12%), var(--primary)); border: 0; color: #05101a; }
 .icon-btn { width: 40px; height: 40px; display: grid; place-items: center; border-radius: .75rem; border: 1px solid var(--ring); background: var(--bg-soft); }
 
+/* Theme toggle switch */
+#theme-toggle {
+  width: 96px; height: 32px; border-radius: 999px; padding: 0; position: relative;
+  border: 1px solid var(--ring); background: var(--bg-soft);
+  display: inline-block; vertical-align: middle; cursor: pointer; line-height: 0;
+}
+#theme-toggle::after{
+  content: '🌙'; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--card); display: grid; place-items: center; box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  transition: transform .22s ease;
+}
+[data-theme="light"] #theme-toggle { background: color-mix(in oklab, var(--primary), var(--bg) 70%); border-color: color-mix(in oklab, var(--primary), white 20%); }
+[data-theme="light"] #theme-toggle::after { transform: translateX(60px); }
+#theme-toggle[data-next="light"]::after { content: '☀'; }
+#theme-toggle[data-next="dark"]::after { content: '🌙'; }
+#theme-ico { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; clip: rect(0 0 0 0); clip-path: inset(50%); overflow: hidden; pointer-events: none; }
+
+#theme-toggle .lbl {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-size: 12px; pointer-events: none; transition: opacity .2s ease; opacity: 0; color: var(--text);
+}
+[data-theme="dark"] #theme-toggle .lbl.light { opacity: 1; }
+[data-theme="light"] #theme-toggle .lbl.dark { opacity: 1; }
+
 /* Hero */
 .hero {
   position: relative; padding: 72px 0; overflow: hidden;
@@ -79,19 +103,19 @@ button, input, select { font: inherit; color: inherit; }
 .sub { color: var(--muted); }
 
 /* Cards/grid */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; align-items: stretch; }
 .card {
   background: var(--card); border: 1px solid var(--ring); border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow);
   transition: transform .18s ease, box-shadow .18s ease, border-color .2s ease;
-  display: flex; flex-direction: column; height: 100%;
+  display: flex; flex-direction: column; height: 420px;
 }
 .card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.4); border-color: color-mix(in oklab, var(--primary), white 18%);
 }
 .thumb { aspect-ratio: 16/9; background: #0b0c10; display: grid; place-items:center; position: relative; }
-.thumb img, .thumb video { width: 100%; height: 100%; object-fit: cover; }
+.thumb img, .thumb video { position:absolute; inset:0; width: 100%; height: 100%; object-fit: cover; }
 .badge { position:absolute; left: .6rem; top: .6rem; padding: .25rem .5rem; background: color-mix(in oklab, var(--bg), var(--primary) 20%); border: 1px solid var(--ring); border-radius: .5rem; font-size: .75rem; }
-.card-body { padding: .8rem .9rem 1rem; display: grid; gap: .35rem; flex: 1; }
-.title { font-weight: 700; margin: 0 0 .25rem; }
+.card-body { padding: .8rem .9rem 1rem; display: grid; gap: .35rem; grid-template-rows: auto auto auto 1fr auto; }
+.title { font-weight: 700; margin: 0 0 .25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .muted { color: var(--muted); font-size: .93rem; }
 .tiny { font-size: .85rem; }
 .stars { color: var(--warning); letter-spacing: .5px; font-size: .9rem; }
