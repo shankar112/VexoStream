@@ -1,5 +1,5 @@
 // VexoStream minimal service worker (static pre-cache)
-const VERSION = 'v1';
+const VERSION = 'v6';
 const CACHE_NAME = `vexo-${VERSION}`;
 const PRECACHE = [
   '/',
@@ -51,4 +51,3 @@ self.addEventListener('fetch', (e) => {
     }).catch(()=> caches.match(req))
   );
 });
-
