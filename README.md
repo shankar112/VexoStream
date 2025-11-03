@@ -28,3 +28,5 @@ How to use
 2) Navigate via the header menu.
 3) Toggle theme via the sun/moon button.
 4) Try search and filters on `browse.html`.
+
+See `docs/REPORT.md` for a complete project walkthrough and file‑by‑file explanation.
